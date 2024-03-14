@@ -14,11 +14,12 @@ You might want to launch the game, in order to do so:
 
 - Clone the repository in your computer by writing the following text:
 ```js
-$ git clone https://zone01normandie.org/git/mcatelai/atm-management-system.git
+$ git clone https://github.com/MatthieuCATELAIN/spacesaver
 ```
 
 Open index.html in a Browser.
 
+Or use this :
 
 [Demo Version](https://spacesaver.vercel.app/)
 
