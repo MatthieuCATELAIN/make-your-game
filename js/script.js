@@ -151,7 +151,6 @@ function togglePause() {
 function showMenu() {
     
     forbiddenPause = true;
-    getScoreboard();
     clearAll();
     document.getElementById("menu").style.opacity = 1; // Set opacity to 1
     hideDataGame();
@@ -229,43 +228,21 @@ function showGameOverScreen() {
     const timePlayedElement = document.createElement('p');
     timePlayedElement.textContent = `Time Played: ${timePlayed} seconds`;
 
-    const form = document.createElement('form');
-    const label = document.createElement('label');
-    label.textContent = 'Enter your name for the scoreboard:';
-    
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.id = 'playerName';
-    input.name = 'playerName';
-    input.required = true; 
-
-    const errorMessage = document.createElement('p');
-    errorMessage.style.color = 'red';
-
     const submitButton = document.createElement('button');
     submitButton.type = 'button'; // Prevents the form from being submitted
     submitButton.textContent = 'Submit';
     submitButton.addEventListener('click', function () {
-        const playerName = input.value;
-        if (playerName.trim() !== '') {
-            updateScoreboard(playerName, score, formatTime(timePlayed));
             resetValues();
             showMenu();
             gameOverScreen.remove();
-        } else {
-            errorMessage.textContent = 'Please enter a valid name.';
-        }
+
     });
     gameOverScreen.appendChild(gameOverText);
     gameOverScreen.appendChild(storyText)
     gameOverScreen.appendChild(scoreText);
     gameOverScreen.appendChild(levelText);
     gameOverScreen.appendChild(timePlayedElement);
-    form.appendChild(label);
-    form.appendChild(input);
-    form.appendChild(errorMessage);
-    form.appendChild(submitButton);
-    gameOverScreen.appendChild(form);
+    gameOverScreen.appendChild(submitButton);
     document.body.appendChild(gameOverScreen);
 }
 
@@ -666,7 +643,7 @@ function updateClock() {
         const endTime = new Date();
         timePlayed = ifPauseTime + Math.floor((endTime - startTime) / 1000);
         clockElement.textContent = `Time Played: ${timePlayed} seconds`;
-        if (timePlayed % 5 == 0 && level < 5) {
+        if (timePlayed % 20 == 0 && level < 5) {
             function createEnemyInterval() {
                 return setInterval(() => {
                     createRandomEnemy(color);
@@ -677,7 +654,7 @@ function updateClock() {
             console.log(currentGameSpeed);
             clearInterval(enemyIntervalId);
             enemyIntervalId = createEnemyInterval();
-        } else if (level == 5 && timePlayed % 5 == 0) {
+        } else if (level == 5 && timePlayed % 20 == 0) {
             updateLevel(1);
             createBoss();
         }
