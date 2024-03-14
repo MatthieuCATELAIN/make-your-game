@@ -1,0 +1,409 @@
+
+@font-face {
+    font-family: 'Kenvector';
+    src: url('/kenvector.ttf') format('truetype');
+}
+
+body {
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    font-family: 'Kenvector', sans-serif;
+}
+
+h2 {
+    font-size: 100px;
+}
+
+.centeredSquare {
+    position: absolute;
+    width: 600px;   
+    height: 800px;
+    top: calc(50% - 400px);
+    left: calc(50% - 300px);
+    border: 1px solid rgb(128, 114, 114); /* Optional: add a border to the square */
+    pointer-events: none; /* Ensure the square doesn't capture mouse events */
+    opacity: 0;
+  }
+
+
+.scrollingBackground {
+    position: absolute;
+    background-size: cover;
+    height: 200%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    background-image: url("/img/background0.jpg");
+    animation: scrolling 15s linear infinite;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100%{
+        transform: translateY(0vh);
+    }
+}
+
+#volumeControl {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+#volumeSlider {
+    margin-left: 10px;
+}
+
+h1{
+    margin: 10%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+}
+
+p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+}
+
+#menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: black;
+    opacity: 80%;
+}
+
+#gameOverScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: black;
+    opacity: 80%;
+}
+
+.color-button {
+    margin: 10px;
+    height: 75px;
+    width: 112px;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.green-button {
+    background-image: url("/img/player_green.png");
+}
+
+.blue-button {
+    background-image: url("/img/player_blue.png");
+}
+
+.red-button {
+    background-image: url("/img/player_red.png");
+}
+
+#score {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    z-index: 1000;
+}
+
+#level {
+    position: fixed;
+    top: 40px;
+    left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    z-index: 1000;
+}
+
+#health {
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    z-index: 1000;
+}
+
+#starship {
+    background-image: url("/img/player_green.png");
+    width: 112px;
+    height: 75px;
+    position: fixed;
+    bottom: 100px;
+    left: 460px;
+    background-repeat: no-repeat;
+    transform: scale(50%);
+}
+
+.laser {
+    background-image: url("/img/laser_green.png");
+    width: 112px;
+    height: 45px;
+    position: fixed;
+    bottom: 100px;
+    left: 460px;
+    background-repeat: no-repeat;
+    transform: scale(50%);
+}
+
+.enemy {
+    position: fixed;
+    width: 112px;
+    height: 75px;
+    background-repeat: no-repeat;
+    transform: scale(50%);
+    animation: enemyScroll 5s linear infinite;
+}
+
+.enemylaser {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 100px;
+    left: 460px;
+    background-repeat: no-repeat;
+    transform: scale(50%);
+}
+
+.enemylaser.green {
+    background: radial-gradient(circle, white , green);}
+
+.enemylaser.red {
+    background: radial-gradient(circle, white , red);}
+
+.enemylaser.yellow {
+    background: radial-gradient(circle, white , yellow);}
+
+.enemylaser.blue {
+    background: radial-gradient(circle, white , blue);}
+
+
+
+.enemy.yellow {
+    background-image: url("/img/enemy1.png");
+}
+
+.enemy.blue {
+    background-image: url("/img/enemy2.png");
+}
+
+.enemy.green {
+    background-image: url("/img/enemy3.png");
+}
+
+.enemy.red {
+    background-image: url("/img/enemy4.png");
+}
+
+#volumeControl {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+}
+
+#clock {
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+}
+
+#volumeSlider {
+    margin-left: 10px;
+}
+
+.health-heart {
+    width: 91px; /* Adjust the width according to your image size */
+    height: 91px; /* Adjust the height according to your image size */
+    transform: scale(50%);
+    margin: -20px;
+}
+
+#pauseScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: black;
+    opacity: 80%;
+}
+
+.scoreboard {
+    font-size: 18px;
+    text-align: left;
+}
+
+#fps-display {
+    position: fixed;
+    top: 70px;
+    right: 10px;
+    font-size: 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+.gradient {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    background: linear-gradient(0.25turn,black,rgba(0, 0, 0, 0),black);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.boss {
+    background-color: blue;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: apparition 5s ease-out forwards, leftToRight 5s ease-in-out infinite;
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+@keyframes apparition {
+    0% {
+        transform: translateY(-100vh);
+    }
+
+    100% {
+        transform: translateY(17vh);
+    }
+}
+
+@keyframes leftToRight {
+    0% {
+        translate: 0vw;
+    }
+
+    25% {
+        translate: -10vw;
+    }
+
+    75% {
+        translate: 10vw;
+    }
+
+    100% {
+        translate: 0vw;
+    }
+}
+
+.boss-gif {
+    position: absolute;
+    width: 50vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: url('/img/boss1.gif');
+}
+
+.reacteur {
+    position: fixed;
+    border-radius: 50%;
+    height: 0.1vw;
+    width: 4.5vw;
+/*     background-color: rgba(6, 128, 0, 0.845); */
+/*     z-index: 9999; */
+}
+
+.droit {
+    transform: translate(-9.2vw, 2.8vw);
+}
+
+.gauche {
+    transform: translate(9.2vw, 2.8vw);
+
+}
+
+.triple-laser {
+    position: fixed;
+/*     z-index: 9999; */
+    display: flex;
+}
+
+.gext {
+    transform: translate(-14.6vw, 4vw);
+}
+
+.gint {
+    transform: translate(-3.7vw, 4vw);
+}
+
+.rint {
+    transform: translate(3.7vw, 4vw);
+}
+
+.rext {
+    transform: translate(14.6vw, 4vw);
+}
+
+.mini-laser {
+/*     background-color: rgb(0, 13, 255); */
+    margin: 0.15vw;
+    height: 0.1vw;
+    width: 0.5vw;
+}
+
+.boss-health-bar {
+    position: fixed;
+    top: 5%;
+    left: 0%;
+    background-color: red;
+    height: 3vh;
+    width: 100%;
+    border: 1px solid white;
+}
+
+.bosslaser {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, white , rgb(255, 0, 149));
+    position: fixed;
+    bottom: 100px;
+    left: 460px;
+    background-repeat: no-repeat;
+    transform: scale(50%);
+    
+}

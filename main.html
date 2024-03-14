@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Starship</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<div id="fps-display"></div>
+
+<audio id="lasersound">
+    <source src="audio/laser.ogg" type="audio/wav" />
+</audio>
+<audio id="explosionsound">
+    <source src="audio/explosion.wav" type="audio/wav" />
+</audio>
+<audio id="aiesound">
+    <source src="audio/aie.wav" type="audio/wav" />
+</audio>
+<audio id="music">
+    <source src="audio/music.mp3" type="audio/wav" />
+</audio>
+
+
+<body>
+    <div class="gradient"></div>
+    <div id="background" class="scrollingBackground"></div>
+
+<div id="volumeControl">
+    <label for="volumeSlider">Music: </label>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1" onchange="updateVolume()">
+</div>
+
+<div id="clock"></div>
+
+    <div id="menu">
+        <h2>SPACE SAVER</h2>
+        <p>In the year 3030, the galaxy faces an imminent threat from the Zorgons, an alien race with destructive intentions. You, Captain Neo, are humanity's last hope. Select your starship and prepare for battle!</p>
+        <button class="color-button green-button" data-color="green" onclick="startGame(1500, 'green')"></button>
+        <button class="color-button blue-button" data-color="blue" onclick="startGame(1500, 'blue')"></button>
+        <button class="color-button red-button" data-color="red" onclick="startGame(1500, 'red')"></button>
+        <p>Scoreboard:</p>
+        <div class="scoreboard"></div>
+    </div>
+
+
+    <div id="starship"></div>
+
+    <canvas id="tilemap"></canvas>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+<div class="centeredSquare"></div>
+
+</html>
